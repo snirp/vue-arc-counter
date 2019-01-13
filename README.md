@@ -7,7 +7,7 @@ direction can all be controlled through properties.
 
 ![diagram of vue-polar](https://raw.githubusercontent.com/snirp/vue-arc-counter/master/examples.png)
 
-[Sample code on Codepen]()
+[Sample code on codesandbox](https://codesandbox.io/s/github/snirp/vue-arc-counter)
 
 ## Project setup
 

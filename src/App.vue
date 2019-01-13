@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div>
-      <ArcCounter width="10rem" height="10rem" :start="-40" :end="40" :activeCount="0"></ArcCounter>
+      <ArcCounter width="10rem" height="10rem" :start="-40" :end="40"></ArcCounter>
       <table class="prop-table">
         <thead>
           <tr><th>Property</th><th>Value</th></tr>
