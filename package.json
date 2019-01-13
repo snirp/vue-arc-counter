@@ -1,6 +1,6 @@
 {
   "name": "vue-arc-counter",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Vue compoment to create an SVG counter in a circular arc",
   "author": {
     "name": "Roy Prins",
@@ -8,10 +8,18 @@
   },
   "repository": "https://github.com/snirp/vue-arc-counter",
   "bugs": "https://github.com/snirp/vue-arc-counter/issues",
-  "keywords": ["vue", "arc", "counter", "svg", "circle"],
+  "keywords": [
+    "vue",
+    "arc",
+    "counter",
+    "svg",
+    "circle"
+  ],
   "license": "MIT",
   "private": false,
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
