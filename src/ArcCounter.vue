@@ -5,14 +5,14 @@
       fill="none" 
       :stroke="stroke" 
       :stroke-width="getStrokeWidth()" 
-      :stroke-dasharray="getDashArray(dashCount)"
+      :stroke-dasharray="getLengths()"
     />
     <path
       :d="describeArc(UNITS/2, UNITS/2, getRadius(), start, activeEnd())" 
       fill="none" 
       :stroke="activeStroke" 
       :stroke-width="getStrokeWidth()" 
-      :stroke-dasharray="getDashArray(dashCount)"
+      :stroke-dasharray="getLengths()"
     /> 
   </svg>
 </template>
@@ -69,11 +69,6 @@ export default {
         return this.start
       }
       return this.start + (this.end-this.start)*(this.activeCount*this.dashPerc() + (this.activeCount-1)*this.spacePerc())
-    },
-
-    // Generate a string that will be used as value for the stroke-dasharray attribute
-    getDashArray(count){
-      return Array(count).fill(this.getLengths()).flat().slice(0,-1).join(" ")
     },
 
     // An array of the length of the dash & the length of the space between dashes
