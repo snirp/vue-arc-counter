@@ -20,7 +20,7 @@
 <script>
 export default {
   beforeCreate() {
-    // Arbitrary dimensions of SVG to set up user-space
+    // Arbitrary dimensions of SVG to set up user-space units
     this.UNITS = 32;
   },
   props: {
@@ -65,6 +65,9 @@ export default {
 
     // Determine the 'end' angle of the path for the active dashes in degrees.
     activeEnd(){
+      if (this.activeCount == 0){
+        return this.start
+      }
       return this.start + (this.end-this.start)*(this.activeCount*this.dashPerc() + (this.activeCount-1)*this.spacePerc())
     },
 
@@ -107,7 +110,7 @@ export default {
       };
     },
 
-    // Path definition for circular arc, clockwise when endDegrees > startDegrees
+    // Path definition for circular arc, clockwise when endDegrees
     describeArc(cx, cy, radius, startDegrees, endDegrees){
       const start = this.polarToCartesian(cx, cy, radius, startDegrees);
       const end = this.polarToCartesian(cx, cy, radius, endDegrees);
