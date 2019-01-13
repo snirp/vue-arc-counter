@@ -23,7 +23,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build:npm": "vue-cli-service build --target lib --name ArcCounter ./src/arcCounter.vue"
+    "build:npm": "vue-cli-service build --target lib --name arcCounter ./src/ArcCounter.vue"
   },
   "main": "dist/arcCounter.umd.js",
   "unpkg": "dist/arcCounter.umd.min.js",
