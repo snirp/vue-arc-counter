@@ -5,7 +5,7 @@ direction can all be controlled through properties.
 
 ## Examples
 
-![diagram of vue-polar](https://raw.githubusercontent.com/snirp/vue-arc-counter/master/examples.png)
+![diagram of arc counter](https://raw.githubusercontent.com/snirp/vue-arc-counter/master/examples.png)
 
 [Sample code on codesandbox](https://codesandbox.io/s/github/snirp/vue-arc-counter)
 
@@ -38,6 +38,7 @@ The absolute difference between `end` and `start` angles should always be less t
 ## Properties
 |prop|description|default|options|
 |:---|---|---|---|
+|`size`|width and height of element|`10rem`|String|
 |`dashCount`|Total number of dashes|`21`|Natural number|
 |`activeCount`|Number of dashes on top|`5`|Natural number|
 |`strokeWidth`|Stroke as a percentage of the radius|`20`|`0` to `100`|
@@ -46,6 +47,8 @@ The absolute difference between `end` and `start` angles should always be less t
 |`dashSpacing`|Fraction of width taken up by space between dashes|`1/4`|`0` to `1`|
 |`start`|Start angle from top|`-120`|`-360` to `360`|
 |`end`|End angle from top|`120`|`-360` to `360`|
+|`contentX`|Horizontal position of content|`center`|`center`, `left`, `right`|
+|`contentY`|Vertical position of content|`center`|`center`, `top`, `bottom`|
 
 ## License
 

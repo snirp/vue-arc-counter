@@ -1,20 +1,30 @@
 <template>
-  <svg :viewBox="`0 0 ${UNITS} ${UNITS}`" height="100%" width="100%">
-    <path
-      :d="describeArc(UNITS/2, UNITS/2, getRadius(), start, end)" 
-      fill="none" 
-      :stroke="stroke" 
-      :stroke-width="getStrokeWidth()" 
-      :stroke-dasharray="getLengths()"
-    />
-    <path
-      :d="describeArc(UNITS/2, UNITS/2, getRadius(), start, activeEnd())" 
-      fill="none" 
-      :stroke="activeStroke" 
-      :stroke-width="getStrokeWidth()" 
-      :stroke-dasharray="getLengths()"
-    /> 
-  </svg>
+  <div :style="{
+    position: 'relative', 
+    height: size, 
+    width: size,
+    display: 'flex',
+    justifyContent: this.flexValue[contentX],
+    alignItems: this.flexValue[contentY],
+  }">
+    <slot></slot>
+    <svg :viewBox="`0 0 ${UNITS} ${UNITS}`" height="100%" width="100%" style="position:absolute; top:0; left:0; z-index:-1">
+      <path
+        :d="describeArc(UNITS/2, UNITS/2, getRadius(), start, end)" 
+        fill="none" 
+        :stroke="stroke" 
+        :stroke-width="getStrokeWidth()" 
+        :stroke-dasharray="getLengths()"
+      />
+      <path
+        :d="describeArc(UNITS/2, UNITS/2, getRadius(), start, activeEnd())" 
+        fill="none" 
+        :stroke="activeStroke" 
+        :stroke-width="getStrokeWidth()" 
+        :stroke-dasharray="getLengths()"
+      /> 
+    </svg>
+  </div>
 </template>
 
 <script>
@@ -22,8 +32,27 @@ export default {
   beforeCreate() {
     // Arbitrary dimensions of SVG to set up user-space units
     this.UNITS = 32;
+    this.flexValue = {
+      'left': 'flex-start',
+      'center': 'center',
+      'right': 'flex-end',
+      'top': 'flex-start',
+      'bottom': 'flex-end',
+    }
   },
   props: {
+    size: {
+      type: String,
+      default: '10rem'
+    },
+    contentX: {
+      type: String,
+      default: 'center'
+    },
+    contentY: {
+      type: String,
+      default: 'center'
+    },    
     dashCount: {
       type: Number,
       default: 21
