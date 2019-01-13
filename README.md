@@ -9,6 +9,11 @@ direction can all be controlled through properties.
 
 [Sample code on codesandbox](https://codesandbox.io/s/github/snirp/vue-arc-counter)
 
+[Browser example on Codepen](https://codepen.io/snirp/pen/BvvoOB)
+
+<p data-height="265" data-theme-id="dark" data-slug-hash="BvvoOB" data-default-tab="html,result" data-user="snirp" data-pen-title="BvvoOB" class="codepen">See the Pen <a href="https://codepen.io/snirp/pen/BvvoOB/">BvvoOB</a> by Roy Prins (<a href="https://codepen.io/snirp">@snirp</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
 ## Project setup
 
 With a package manager
