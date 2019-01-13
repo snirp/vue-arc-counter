@@ -1,6 +1,6 @@
 {
   "name": "vue-arc-counter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vue compoment to create an SVG counter in a circular arc",
   "author": {
     "name": "Roy Prins",
