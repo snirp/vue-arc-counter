@@ -8,14 +8,14 @@
       :d="describeArc(UNITS/2, UNITS/2, getRadius(), start, end)" 
       fill="none" 
       :stroke="stroke" 
-      :stroke-width="getStrokeWidth()" 
+      :stroke-width="getStrokeWidth(strokeWidth)" 
       :stroke-dasharray="getLengths()"
     />
     <path
       :d="describeArc(UNITS/2, UNITS/2, getRadius(), start, activeEnd())" 
       fill="none" 
       :stroke="activeStroke" 
-      :stroke-width="getStrokeWidth()" 
+      :stroke-width="getStrokeWidth(activeWidth)" 
       :stroke-dasharray="getLengths()"
     />
     <text v-bind="this.getTextProps()">{{text}}</text>
@@ -27,13 +27,6 @@ export default {
   beforeCreate() {
     // Arbitrary dimensions of SVG to set up user-space units
     this.UNITS = 200;
-    this.flexValue = {
-      'left': 'flex-start',
-      'center': 'center',
-      'right': 'flex-end',
-      'top': 'flex-start',
-      'bottom': 'flex-end',
-    }
   },
   props: {
     size: {
@@ -61,6 +54,10 @@ export default {
       default: 5
     },
     strokeWidth: {
+      type: Number, 
+      default: 20
+    },
+    activeWidth: {
       type: Number, 
       default: 20
     },
@@ -108,8 +105,8 @@ export default {
     },
 
     // Stroke is provided as a percentage of the radius, translate into user space units
-    getStrokeWidth(){
-      return this.strokeWidth*this.UNITS/200;
+    getStrokeWidth(stroke){
+      return stroke*this.UNITS/200;
     },
 
     // Determine the 'end' angle of the path for the active dashes in degrees.
@@ -142,7 +139,7 @@ export default {
 
     // Radius of the circle arc
     getRadius(){
-      return (this.UNITS-this.getStrokeWidth())/2
+      return (this.UNITS-Math.max(this.getStrokeWidth(this.strokeWidth), this.getStrokeWidth(this.activeWidth)))/2
     },
 
     // SVG path definition requires points in cartesian space
