@@ -33,6 +33,9 @@ Two dashed strokes are overlayed: the bottom one controlled by `stroke` and `das
 `activeStroke` and `activeCount`. A `start` angle smaller than the `end` angle will make for clockwise counting, 
 vice versa.
 
+You can display a string of `text` to add a value or label, with limited positioning options. This can be styled 
+with CSS.
+
 The absolute difference between `end` and `start` angles should always be less than 360 degrees.
 
 ## Properties
@@ -47,8 +50,9 @@ The absolute difference between `end` and `start` angles should always be less t
 |`dashSpacing`|Fraction of width taken up by space between dashes|`1/4`|`0` to `1`|
 |`start`|Start angle from top|`-120`|`-360` to `360`|
 |`end`|End angle from top|`120`|`-360` to `360`|
-|`contentX`|Horizontal position of content|`center`|`center`, `left`, `right`|
-|`contentY`|Vertical position of content|`center`|`center`, `top`, `bottom`|
+|`text`|Text string to display inside SVG|`""`|String|
+|`textX`|Horizontal position of svg text string|`center`|`center`, `left`, `right`|
+|`textY`|Vertical position of svg text string|`center`|`center`, `top`, `bottom`|
 
 ## License
 
