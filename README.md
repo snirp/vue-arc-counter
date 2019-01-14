@@ -44,7 +44,8 @@ The absolute difference between `end` and `start` angles should always be less t
 |`size`|width and height of element|`10rem`|String|
 |`dashCount`|Total number of dashes|`21`|Natural number|
 |`activeCount`|Number of dashes on top|`5`|Natural number|
-|`strokeWidth`|Stroke as a percentage of the radius|`20`|`0` to `100`|
+|`strokeWidth`|Bottom stroke width as a percentage of the radius|`20`|`0` to `100`|
+|`activeWidth`|Top stroke width as a percentage of the radius|`20`|`0` to `100`|
 |`stroke`|Stroke color of the bottom dashes|`lightgrey`|`color`|
 |`activeStroke`|Stroke color of the top dashes|`dodgerblue`|`color`|
 |`dashSpacing`|Fraction of width taken up by space between dashes|`1/4`|`0` to `1`|
