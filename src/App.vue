@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <div>
-      <ArcCounter size="15rem" :start="-40" :end="40">
-        hello
-      </ArcCounter>
+      <ArcCounter size="15rem" :start="-40" :end="40"></ArcCounter>
       <table class="prop-table">
         <thead>
           <tr><th>Property</th><th>Value</th></tr>
@@ -22,14 +20,14 @@
       </table>
     </div>
     <div>
-      <ArcCounter width="10rem" height="10rem" :strokeWidth="60" :dashCount="45" :activeCount="17" :dashSpacing="0.6" :start="300" :end="60" content-y="top">
-        world
-      </ArcCounter>
+      <ArcCounter size="10rem" :strokeWidth="60" :dashCount="45" :activeCount="17" :dashSpacing="0.6" :start="300" :end="60" content-y="top"></ArcCounter>
       <table class="prop-table">
         <thead>
           <tr><th>Property</th><th>Value</th></tr>
         </thead>
         <tbody>
+        <tr><td>height</td><td>6rem</td></tr>
+        <tr><td>width</td><td>6rem</td></tr>
         <tr><td>size</td><td>10rem</td></tr>
         <tr><td>dashCount</td><td>45</td></tr>
         <tr><td>activeCount</td><td>17</td></tr>
@@ -43,9 +41,7 @@
       </table>
     </div>
     <div>
-      <ArcCounter width="10rem" height="10rem" :start="140" :end="-140" :strokeWidth="3" stroke="darkgrey" activeStroke="red" :dashSpacing="1/10" content-x="left" content-y="bottom">
-        ❤️
-      </ArcCounter>
+      <ArcCounter width="10rem" height="10rem" :start="140" :end="-140" :strokeWidth="3" stroke="darkgrey" activeStroke="red" :dashSpacing="1/10" content-x="left" content-y="bottom"></ArcCounter>
       <table class="prop-table">
         <thead>
           <tr><th>Property</th><th>Value</th></tr>
@@ -104,5 +100,10 @@ export default {
 }
 .prop-table tr td:nth-child(2), .prop-table tr th:nth-child(2){
   text-align: right;
+}
+
+svg text {
+  color: blue;
+  font-style: italic
 }
 </style>

@@ -1,37 +1,32 @@
 <template>
-  <div :style="{
-    position: 'relative', 
-    height: size, 
-    width: size,
-    display: 'flex',
-    justifyContent: this.flexValue[contentX],
-    alignItems: this.flexValue[contentY],
-  }">
-    <slot></slot>
-    <svg :viewBox="`0 0 ${UNITS} ${UNITS}`" height="100%" width="100%" style="position:absolute; top:0; left:0; z-index:-1">
-      <path
-        :d="describeArc(UNITS/2, UNITS/2, getRadius(), start, end)" 
-        fill="none" 
-        :stroke="stroke" 
-        :stroke-width="getStrokeWidth()" 
-        :stroke-dasharray="getLengths()"
-      />
-      <path
-        :d="describeArc(UNITS/2, UNITS/2, getRadius(), start, activeEnd())" 
-        fill="none" 
-        :stroke="activeStroke" 
-        :stroke-width="getStrokeWidth()" 
-        :stroke-dasharray="getLengths()"
-      /> 
-    </svg>
-  </div>
+  <svg 
+    :viewBox="`0 0 ${UNITS} ${UNITS}`" 
+    :height="size || '100%'" 
+    :width="size || '100%'" 
+  >
+    <path
+      :d="describeArc(UNITS/2, UNITS/2, getRadius(), start, end)" 
+      fill="none" 
+      :stroke="stroke" 
+      :stroke-width="getStrokeWidth()" 
+      :stroke-dasharray="getLengths()"
+    />
+    <path
+      :d="describeArc(UNITS/2, UNITS/2, getRadius(), start, activeEnd())" 
+      fill="none" 
+      :stroke="activeStroke" 
+      :stroke-width="getStrokeWidth()" 
+      :stroke-dasharray="getLengths()"
+    />
+    <text v-bind="this.getTextProps()">{{text}}</text>
+  </svg>
 </template>
 
 <script>
 export default {
   beforeCreate() {
     // Arbitrary dimensions of SVG to set up user-space units
-    this.UNITS = 32;
+    this.UNITS = 200;
     this.flexValue = {
       'left': 'flex-start',
       'center': 'center',
@@ -43,13 +38,17 @@ export default {
   props: {
     size: {
       type: String,
-      default: '10rem'
+      default: ''
     },
-    contentX: {
+    text: {
+      type: String,
+      default: ''      
+    },
+    textX: {
       type: String,
       default: 'center'
     },
-    contentY: {
+    textY: {
       type: String,
       default: 'center'
     },    
@@ -87,6 +86,27 @@ export default {
     },
   },
   methods: {
+    // Props object for text positioning
+    getTextProps(){
+      const props = {fill: 'currentColor'};
+      if (this.textX == 'center'){
+        props['text-anchor']='middle'
+        props.x='50%'
+      } else if (this.textX == 'right'){
+        props['text-anchor']='end'
+        props.x='100%' 
+      }
+      if (this.textY == 'center'){
+        props['dominant-baseline']="middle"
+        props.y='50%'
+      } else if (this.textY == 'bottom'){
+        props.y='100%'
+      } else {
+        props['dominant-baseline']="hanging"
+      }
+      return props;
+    },
+
     // Stroke is provided as a percentage of the radius, translate into user space units
     getStrokeWidth(){
       return this.strokeWidth*this.UNITS/200;
